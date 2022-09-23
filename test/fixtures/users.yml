@@ -6,8 +6,10 @@
 #
 one:
   name: 'test'
+  email: 'email'
 # column: value
 #
 two:
   name: 'test2'
+  email: 'email2'
 # column: value
