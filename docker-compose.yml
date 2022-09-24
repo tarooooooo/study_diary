@@ -3,9 +3,6 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: root
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: password
     ports:
       - "5306:3306"
