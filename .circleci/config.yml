@@ -18,9 +18,8 @@ jobs:
       - image: circleci/ruby:2.7.4
       - image: circleci/mysql:5.5
         environment:
-          MYSQL_ROOT_PASSWORD:
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: app_test
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
