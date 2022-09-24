@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.4
+      - image: cimg/ruby:3.1.2
     working_directory: ~/study_diary
     steps:
       - checkout:
@@ -15,7 +15,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/ruby:2.7.4
+      - image: cimg/ruby:3.1.2
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: password
@@ -39,7 +39,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.7.4
+      - image: cimg/ruby:3.1.2
     steps:
       - checkout
       - setup_remote_docker:
