@@ -64,7 +64,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'アプリケーションのドメイン名'}
+  config.action_mailer.default_url_options = {:host => 'study-diary-rm.herokuapp.com', :protocol => 'https'}
 
   config.action_mailer.perform_deliveries = true
 
