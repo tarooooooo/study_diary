@@ -5,6 +5,7 @@ ja:
         name: アカウント名
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード確認
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
