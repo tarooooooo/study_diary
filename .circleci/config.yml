@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.1.2
+      - image: cimg/ruby:3.1.2
     working_directory: ~/study_diary
     steps:
       - checkout:
