@@ -18,7 +18,7 @@ development:
 
 test:
   <<: *default
-  database: app_test
+  database: study_diary_test
   host: <%= ENV.fetch("APP_DATABASE_HOST") { 'db' } %>
 
 production:
