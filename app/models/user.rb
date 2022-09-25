@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
+
+  has_many :study_categories, dependent: :destroy
 end
