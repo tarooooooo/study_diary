@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Users::RegistrationsController < Devise::RegistrationsController
+  layout 'public'
   def new
     super
     @user = User.new
