@@ -1,17 +1,10 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+//@import "bootstrap-sprockets";
+//gemで導入しているbootstrapは3系で古いので、現状はcdnでの導入に切り替えています
+//@import "bootstrap";
+@import 'public/top_page';
+@import 'public/header';
 
-
-.alert {
-  padding-top: 50px;
+* {
   margin: 0;
-}
-
-.page {
-  padding-top: 50px;
-  margin: 0;
-}
-
-.mt-5 {
-  margin-top: 5px;
+  padding: 0;
 }
