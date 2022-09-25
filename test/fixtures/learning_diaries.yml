@@ -5,9 +5,11 @@ one:
   study_day: 2022-09-25
   study_time: 1
   study_category: one
+  user: one
 
 two:
   body: MyText
   study_day: 2022-09-25
   study_time: 1
   study_category: two
+  user: two
