@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_25_050029) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_25_073619) do
+  create_table "learning_diaries", charset: "utf8mb4", force: :cascade do |t|
+    t.text "body", null: false
+    t.date "study_day", null: false
+    t.integer "study_time", null: false
+    t.bigint "study_category_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_category_id"], name: "index_learning_diaries_on_study_category_id"
+    t.index ["user_id"], name: "index_learning_diaries_on_user_id"
+  end
+
   create_table "study_categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "user_id", null: false
@@ -47,5 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_25_050029) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "learning_diaries", "study_categories"
+  add_foreign_key "learning_diaries", "users"
   add_foreign_key "study_categories", "users"
 end

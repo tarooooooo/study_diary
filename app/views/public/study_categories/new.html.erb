@@ -1,11 +1,18 @@
-<%= form_with model: @study_category, url: public_study_categories_path, method: :post, local: true do |f| %>
-  <div class="form_box bg-white p-4">
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
+<div class="container">
+  <div class="row">
+    <h2>カテゴリ追加</h2>
+    <div class="col">
+      <%= form_with model: @study_category, url: public_study_categories_path, method: :post, local: true do |f| %>
+        <div class="form_box bg-white p-4">
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <p class="mt-2">
+            <%= f.submit '保存', class: 'btn btn-primary' %>
+          </p>
+        </div>
+      <% end %>
     </div>
-    <p class="mt-2">
-      <%= f.submit '保存', class: 'btn btn-primary' %>
-    </p>
   </div>
-<% end %>
+</div>

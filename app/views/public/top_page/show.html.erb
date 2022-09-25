@@ -1,5 +1,12 @@
 <div class="bg-light p-4 p-sm-5 my-4 rounded">
   <h1>StudyDiary</h1>
   <p>目標を立てて学びを積み上げよう！</p>
-  <p><%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  <p>
+    <% if user_signed_in? %>
+      <%= link_to '学習日記をつける', new_public_learning_diary_path, class: "btn btn-primary btn-lg" %>
+    <% else %>
+      <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to 'ログイン', new_user_session_path,  class: 'btn btn-secondary btn-lg' %>
+    <% end %>
+  </p>
 </div>

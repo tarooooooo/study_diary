@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      learning_diary:
+       body: 本文
+       study_day: 学習日
+       study_time: 学習時間
+       study_category: カテゴリ
