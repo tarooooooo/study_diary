@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Users::SessionsController < Devise::SessionsController
+  layout 'public'
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -9,14 +10,17 @@ class Public::Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    flash[:notice] = "ログインしました。"
+    super
+  end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    flash[:alert] = "ログアウトしました。"
+    flash[:notice] = "ログインしました。"
+    super
+  end
 
   # protected
 
