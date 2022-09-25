@@ -11,4 +11,5 @@ namespace :public, path: '/' do
   root 'top_page#show'
 
   resources :study_categories, only: [:index, :create, :new, :destroy]
+  resources :learning_diaries, only: [:show, :index, :create, :new, :destroy]
 end

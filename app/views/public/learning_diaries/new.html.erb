@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-8 col-lg-5">
+      <div class="diary_box">
+        <h2 class="text-center">学習日記をつける</h2>
+        <%= form_with model: @learning_diary, url: public_learning_diaries_path, method: :post, local: true do |f| %>
+          <div class="form_box bg-white">
+            <div class="form-group mb-3">
+              <p class="m-0">本日学習したことを記録しましょう</p>
+              <%= f.text_area :body, class: "form-control" %>
+            </div>
+            <div class="form-group mb-3">
+              <%= f.label :study_day %>
+              <%= f.date_field :study_day, value: Time.now.strftime("%Y-%m-%d"), class: "form-control", max: Date.current %>
+            </div>
+            <div class="form-group mb-3">
+              <%= f.label :study_time %>
+              <%= f.select :study_time, options_for_select(@study_time_array),{}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group mb-3">
+              <%= f.label :study_category %>
+              <%= f.collection_select :study_category_id, @study_categories, :id, :name, { include_blank: '指定なし', selected: nil }, { class: 'form-control' } %>
+              <% if @study_categories.blank? %>
+                <p class="text-secondary">※カテゴリを設定する場合は、事前に<%= link_to 'こちら', new_public_study_category_path %>で追加してください</p>
+              <% end %>
+            </div>
+            <p class="mt-2">
+              <%= f.submit '保存', class: 'btn btn-navy' %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+      <p class="text-right">
+        <%= link_to '学習履歴一覧はこちら >>', public_learning_diaries_path %>
+      </p>
+    </div>
+  </div>
+</div>

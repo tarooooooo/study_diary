@@ -23,6 +23,8 @@ class Public::StudyCategoriesController < ::Public::BaseController
   def destroy
     @study_category.destroy!
     redirect_back fallback_location: public_root_path
+  rescue
+    redirect_back fallback_location: public_root_path, alert: "#{@study_category.name}をカテゴリに設定した学習日記があるため削除できません"
   end
 
   private
