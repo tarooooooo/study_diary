@@ -9,4 +9,6 @@ devise_for :users, controllers: {
 
 namespace :public, path: '/' do
   root 'top_page#show'
+
+  resources :study_categories, only: [:index, :create, :new, :destroy]
 end

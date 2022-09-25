@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <h2>カテゴリ</h2>
+    <div class="col-12 col-md-6">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @study_categories.each_with_index do |category, number| %>
+            <tr>
+              <th scope="row"><%= number %></th>
+              <td><%= category.name %></td>
+              <td><%= link_to '削除', public_study_category_path(category), data: { turbo_method: :delete }, class: 'btn btn-danger' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= link_to 'カテゴリ追加', new_public_study_category_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
