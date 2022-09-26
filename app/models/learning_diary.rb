@@ -6,4 +6,10 @@ class LearningDiary < ApplicationRecord
   validates :study_day, presence: true
   validates :study_time, presence: true
   validates :user_id, presence: true
+  validate :date_before_study_day
+
+  def date_before_study_day
+    return if study_day.blank?
+    errors.add(:study_day, "に、未来の日程は設定できません。") if study_day > Date.today
+  end
 end
