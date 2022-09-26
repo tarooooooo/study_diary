@@ -4,6 +4,7 @@
       <div class="diary_box">
         <h2 class="text-center">学習日記をつける</h2>
         <%= form_with model: @learning_diary, url: public_learning_diaries_path, method: :post, local: true do |f| %>
+          <%= render 'public/shared/error_messages', model: f.object %>
           <div class="form_box bg-white">
             <div class="form-group mb-3">
               <p class="m-0">本日学習したことを記録しましょう</p>
@@ -15,7 +16,7 @@
             </div>
             <div class="form-group mb-3">
               <%= f.label :study_time %>
-              <%= f.select :study_time, options_for_select(@study_time_array),{}, {class: 'form-control'} %>
+              <%= f.select :study_time, options_for_select(@study_time_array), {}, {class: 'form-control'} %>
             </div>
             <div class="form-group mb-3">
               <%= f.label :study_category %>
