@@ -10,35 +10,41 @@
     <% end %>
   </p>
 </div>
-
-<%= pie_chart StudyCategory.group(:name).count,
-  donut: true,  # ドーナツグラフにするための記述
-  colors: ["#ACFF40", "#FFF33F"],  # 色を指定
-  thousands: ",",   # 金額表示にする（カンマを入れる）
-  suffix: "円",  # 単位を指定
-  label: "金額",  # ホバーした時に表示される詳細の項目名を指定
-  library: {
-    title: {
-      text: "Good yen!<br>#{@price_true_percent}%",  # 中央(ドーナツの穴)部分の記述を指定
-      align: 'center',  # 位置を指定（水平方向）
-      verticalAlign: 'middle'  # 位置を指定（垂直方向）
-    },
-    plotOptions: {
-      pie: {
-        dataLabels: {
-          enabled: false  #データラベルを表示するか否か
-        },
-        innerSize: '50%',  # 中央(ドーナツの穴)部分のサイズを指定
-      }
-    }
-  }
-%>
-
-
-<%= column_chart  [{ name: 'Good yen!', data: [['1月', 1000], ['2月', 2000], ['3月', 3000]] }, { name: 'あと一歩', data: [['1月', 1000], ['2月', 1000], ['3月', 1000]] }],
-  stacked: true, # 積み上げ式にするための記述
-  max_width: '100vw', # 幅を指定
-  colors: ["#ACFF40", "#FFF33F"], # 色を指定
-  thousands: ",", # 金額表示にする（カンマを入れる）
-  suffix: "円" # 単位を指定
-%>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 col-md-8">
+      <%= pie_chart current_user.study_categories.group(:name).count,
+                    donut: true,  # ドーナツグラフにするための記述
+                    colors: ["#ACFF40", "#FFF33F"],  # 色を指定
+                    thousands: ",",   # 金額表示にする（カンマを入れる）
+                    suffix: "分",  # 単位を指定
+                    label: "学習時間",  # ホバーした時に表示される詳細の項目名を指定
+                    library: {
+                      title: {
+                        text: "Good yen!<br>#{@price_true_percent}%",  # 中央(ドーナツの穴)部分の記述を指定
+                        align: 'center',  # 位置を指定（水平方向）
+                        verticalAlign: 'middle'  # 位置を指定（垂直方向）
+                      },
+                      plotOptions: {
+                        pie: {
+                          dataLabels: {
+                            enabled: false  #データラベルを表示するか否か
+                          },
+                          innerSize: '50%',  # 中央(ドーナツの穴)部分のサイズを指定
+                        }
+                      }
+                    }
+      %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= column_chart  @learning_diaries_chart_data,
+                        stacked: true, # 積み上げ式にするための記述
+                        max_width: '100vw', # 幅を指定
+                        colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
+                        suffix: "分" # 単位を指定
+      %>
+    </div>
+  </div>
+</div>
