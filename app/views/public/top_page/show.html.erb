@@ -12,16 +12,17 @@
 </div>
 <div class="container">
   <div class="row justify-content-center mb-5">
-    <div class="col-12 col-md-8">
-      <%= pie_chart current_user.study_categories.group(:name).count,
+    <div class="col-12 col-md-5 mb-5">
+      <%= pie_chart @study_categories_count,
                     donut: true,  # ドーナツグラフにするための記述
-                    colors: ["#ACFF40", "#FFF33F"],  # 色を指定
+                    colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
                     thousands: ",",   # 金額表示にする（カンマを入れる）
                     suffix: "分",  # 単位を指定
                     label: "学習時間",  # ホバーした時に表示される詳細の項目名を指定
+                    title: "Awesome chart",
                     library: {
                       title: {
-                        text: "Good yen!<br>#{@price_true_percent}%",  # 中央(ドーナツの穴)部分の記述を指定
+                        text: "あああ",  # 中央(ドーナツの穴)部分の記述を指定
                         align: 'center',  # 位置を指定（水平方向）
                         verticalAlign: 'middle'  # 位置を指定（垂直方向）
                       },
@@ -36,9 +37,7 @@
                     }
       %>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-5">
       <%= column_chart  @learning_diaries_chart_data,
                         stacked: true, # 積み上げ式にするための記述
                         max_width: '100vw', # 幅を指定
