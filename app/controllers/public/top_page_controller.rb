@@ -34,5 +34,11 @@ class Public::TopPageController < ::Public::BaseController
     # 1日の平均学習時間を算出
     avg_daily_study_time = current_user.learning_diaries.where(study_day: Date.today.beginning_of_week..Date.current).sum(:study_time) / (Date.today.beginning_of_week..Date.current).count
     @study_time_hh, @study_time_mm = avg_daily_study_time.divmod(60)
+
+    # 学習目標設定
+    @study_plan = StudyPlan.new
+    @study_time_array = {"15分": 15, "30分": 30, "1時間": 60, "1時間30分": 90, "2時間": 120, "2時間30分": 150, "3時間": 180, "3時間30分": 210, "4時間": 240, "4時間30分": 270, "5時間": 300, "5時間30分": 330, "6時間": 360, "6時間30分": 390, "7時間": 420, "7時間30分": 450, "8時間": 480, "8時間30分": 510, "9時間": 540, "10時間": 600, "10時間30分": 630, "11時間": 660, "11時間30分": 690, "12時間": 720 }
+
+    @current_study_plan = current_user&.study_plans&.last
   end
 end
