@@ -15,6 +15,7 @@
     <div class="col-12 col-md-5 mb-5">
       <%= pie_chart @study_categories_count,
                     donut: true,  # ドーナツグラフにするための記述
+                    suffix: "分",
                     colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
                     thousands: ",",   # 金額表示にする（カンマを入れる）
                     label: "学習時間",  # ホバーした時に表示される詳細の項目名を指定
@@ -31,7 +32,7 @@
       <%= column_chart  @learning_diaries_chart_data,
                         stacked: true, # 積み上げ式にするための記述
                         max_width: '100vw', # 幅を指定
-                        colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
+                        colors: ['#cbd0d3', "#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
                         suffix: "分" # 単位を指定
       %>
     </div>
