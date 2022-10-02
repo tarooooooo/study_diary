@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  target_study_time: 1
+  weekly_target_time: 1
   user: one
 
 two:
   title: MyString
-  target_study_time: 1
+  weekly_target_time: 1
   user: two
