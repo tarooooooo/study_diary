@@ -10,30 +10,32 @@
     <% end %>
   </p>
 </div>
-<div class="container">
-  <div class="row justify-content-center mb-5">
-    <div class="col-12 col-md-5 mb-5">
-      <%= pie_chart @study_categories_count,
-                    donut: true,  # ドーナツグラフにするための記述
-                    suffix: "分",
-                    colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
-                    label: "学習時間",  # ホバーした時に表示される詳細の項目名を指定
-                    title: "カテゴリ別の学習比率（今週）"
-      %>
-    </div>
-    <div class="col-12 col-md-5">
-      <div class="avg-weekly-study-data">
-        <p>1日の学習平均 (今週)</p>
-        <p>
-          <%= @study_time_hh %>時間<%= @study_time_mm %>分
-        </p>
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-12 col-md-5 mb-5">
+        <%= pie_chart @study_categories_count,
+                      donut: true,  # ドーナツグラフにするための記述
+                      suffix: "分",
+                      colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
+                      label: "学習時間",  # ホバーした時に表示される詳細の項目名を指定
+                      title: "カテゴリ別の学習比率（今週）"
+        %>
       </div>
-      <%= column_chart  @learning_diaries_chart_data,
-                        stacked: true, # 積み上げ式にするための記述
-                        max_width: '100vw', # 幅を指定
-                        colors: ['#cbd0d3', "#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
-                        suffix: "分" # 単位を指定
-      %>
+      <div class="col-12 col-md-5">
+        <div class="avg-weekly-study-data">
+          <p>1日の学習平均 (今週)</p>
+          <p>
+            <%= @study_time_hh %>時間<%= @study_time_mm %>分
+          </p>
+        </div>
+        <%= column_chart  @learning_diaries_chart_data,
+                          stacked: true, # 積み上げ式にするための記述
+                          max_width: '100vw', # 幅を指定
+                          colors: ['#cbd0d3', "#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定
+                          suffix: "分" # 単位を指定
+        %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
