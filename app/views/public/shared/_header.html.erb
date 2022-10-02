@@ -1,40 +1,42 @@
-<% if user_signed_in? %>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to 'StudyDiary', public_root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler header-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="header">
+  <% if user_signed_in? %>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <%= link_to 'StudyDiary', public_root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler header-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to 'TOP', public_root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '学びのりれき', public_learning_diaries_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'カテゴリ', public_study_categories_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link', data: { turbo_method: :delete, turbo_confirm: '本当にログアウトしますか？' } %>
-        </li>
-      </ul>
-    </div>
-  </nav>
-<% else %>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to 'StudyDiary', public_root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler header-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to 'TOP', public_root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '学びのりれき', public_learning_diaries_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'カテゴリ', public_study_categories_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link', data: { turbo_method: :delete, turbo_confirm: '本当にログアウトしますか？' } %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <% else %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to 'StudyDiary', public_root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler header-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to 'TOP', public_root_path, class: "nav-link" %>
-        </li>
-      </ul>
-    </div>
-  </nav>
-<% end %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to 'TOP', public_root_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <% end %>
+</div>
