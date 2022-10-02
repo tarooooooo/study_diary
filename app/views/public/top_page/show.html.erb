@@ -1,18 +1,59 @@
-<div class="bg-light p-4 p-sm-5 my-4 rounded">
-  <h1>StudyDiary</h1>
-  <p>目標を立てて学びを積み上げよう！</p>
-  <p>
-    <% if user_signed_in? %>
-      <%= link_to '学習日記をつける', new_public_learning_diary_path, class: "btn btn-primary btn-lg" %>
-    <% else %>
-      <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %>
-      <%= link_to 'ログイン', new_user_session_path,  class: 'btn btn-secondary btn-lg' %>
-    <% end %>
-  </p>
-</div>
-<% if user_signed_in? %>
-  <div class="container">
-    <div class="row justify-content-center mb-5">
+<div class="container">
+  <div class="row">
+    <div class="col p-0">
+      <div class="top_page_jumbotron p-4 p-sm-5 my-4 rounded">
+        <h1>StudyDiary</h1>
+        <p>目標を立てて学びを積み上げよう！</p>
+        <p>
+          <% if user_signed_in? %>
+            <%= link_to '学習日記をつける', new_public_learning_diary_path, class: "btn btn-primary btn-lg" %>
+          <% else %>
+            <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+            <%= link_to 'ログイン', new_user_session_path,  class: 'btn btn-secondary btn-lg' %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <div class="row white_box p-3">
+      <div class="col-8">
+        <div class="study_plan">
+          <h2>学習目標</h2>
+          <p class="study_plan_title"><%= @study_plan_title %></p>
+        </div>
+        <div class="study_plan_progress_box">
+          <p class="study_plan_progress">学習進捗率（今週）</p>
+          <p class="weekly_target_time">
+            学習した時間 / 今週の学習目標<br>
+            <%= @study_time_hh %>時間<%= @study_time_mm %>分 / <%= @study_plan_time_hh %>時間<%= @study_plan_time_mm %>分
+          </p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow=<%= @study_plan_weekly_progress %> aria-valuemin="0" aria-valuemax="100" style=<%= "width:" + "#{@study_plan_weekly_progress}" + "%;" %>> <%= @study_plan_weekly_progress %>% <%= "+ #{@extra_time}%" unless @extra_time == 0 %> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row white_box my-2">
+      <div class="col-8">
+        <%= form_with model: @study_plan, url: public_study_plans_path, method: :post, local: true do |f| %>
+          <div class="form_box bg-white p-4">
+            <div class="form-group">
+              <p>1日の学習目標時間を設定しよう！</p>
+              <%= f.select :weekly_target_time, options_for_select(@study_time_array), {}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <p>今週学習することを記述してください！</p>
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <p class="mt-2">
+              <%= f.submit '保存', class: 'btn btn-primary' %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row justify-content-center my-2 white_box">
       <div class="col-12 col-md-5 mb-5">
         <%= pie_chart @study_categories_count,
                       donut: true,  # ドーナツグラフにするための記述
@@ -37,5 +78,5 @@
         %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
