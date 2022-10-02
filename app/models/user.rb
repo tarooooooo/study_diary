@@ -8,5 +8,4 @@ class User < ApplicationRecord
 
   has_many :study_categories, dependent: :destroy
   has_many :learning_diaries, dependent: :destroy
-  has_many :study_plans, dependent: :destroy
 end

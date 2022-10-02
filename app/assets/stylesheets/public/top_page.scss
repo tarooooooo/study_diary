@@ -2,34 +2,3 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.scss.
 */
-
-.top_page_jumbotron {
-  background-color: white;
-}
-
-.progress {
-  height: 30px;
-}
-
-.study_plan {
-  h2 {
-    font-size: 20px;
-  }
-  .study_plan_title {
-    background-color: #f7f7fc;
-    padding: 3px;
-    font-size: 20px;
-  }
-}
-
-.study_plan_progress_box {
-  .study_plan_progress {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-  .weekly_target_time {
-    color: #acacb0;
-    font-size: 13px;
-    margin: 0;
-  }
-}

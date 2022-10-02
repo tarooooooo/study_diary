@@ -11,6 +11,7 @@ class Public::Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    flash[:notice] = "ログインしました。"
     super
   end
 

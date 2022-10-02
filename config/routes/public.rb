@@ -12,5 +12,4 @@ namespace :public, path: '/' do
 
   resources :study_categories, only: [:index, :create, :new, :destroy]
   resources :learning_diaries, only: [:show, :index, :create, :new, :destroy]
-  resources :study_plans, only: [:create]
 end
