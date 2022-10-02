@@ -21,13 +21,13 @@
         <div class="study_plan">
           <h2>学習目標</h2>
           <p class="study_plan_title"><%= @study_plan_title %></p>
-          <h2 class="weekly_target">今週の学習目標</h2>
-          <p class="weekly_target_time">
-            <%= @study_plan_time_hh %>時間<%= @study_plan_time_mm %>分
-          </p>
         </div>
         <div class="study_plan_progress_box">
           <p class="study_plan_progress">学習進捗率（今週）</p>
+          <p class="weekly_target_time">
+            学習した時間 / 今週の学習目標<br>
+            <%= @study_time_hh %>時間<%= @study_time_mm %>分 / <%= @study_plan_time_hh %>時間<%= @study_plan_time_mm %>分
+          </p>
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow=<%= @study_plan_weekly_progress %> aria-valuemin="0" aria-valuemax="100" style=<%= "width:" + "#{@study_plan_weekly_progress}" + "%;" %>> <%= @study_plan_weekly_progress %>% <%= "+ #{@extra_time}%" unless @extra_time == 0 %> </div>
           </div>
