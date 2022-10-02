@@ -17,7 +17,7 @@
   </div>
   <% if user_signed_in? %>
     <div class="row white_box p-3">
-      <div class="col-8">
+      <div class="col-12 col-md-8">
         <div class="study_plan">
           <h2>学習目標</h2>
           <p class="study_plan_title"><%= @study_plan_title %></p>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="row white_box my-2">
-      <div class="col-8">
+      <div class="col-12 col-md-8">
         <%= form_with model: @study_plan, url: public_study_plans_path, method: :post, local: true do |f| %>
           <div class="form_box bg-white p-4">
             <div class="form-group">
