@@ -55,7 +55,7 @@
     </div>
     <div class="row justify-content-center my-2 white_box">
       <div class="col-12 col-md-5 mb-5">
-        <%= pie_chart @study_categories_count,
+        <%= pie_chart @category_and_study_time_hash,
                       donut: true,  # ドーナツグラフにするための記述
                       suffix: "分",
                       colors: ["#ACFF40", "#FFF33F", "#3fbeff", "#3f4bff", "#a63fff", "#ffd278"], # 色を指定

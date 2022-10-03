@@ -8,6 +8,9 @@ class LearningDiary < ApplicationRecord
   validates :user_id, presence: true
   validate :date_before_study_day
 
+  scope :weekly_uncategorized_diaries, -> ( number_of_day ) { where(study_category: nil, study_day: Date.today.beginning_of_week + number_of_day) }
+  scope :weekly_diaries, -> ( number_of_day ) { where(study_day: Date.today.beginning_of_week + number_of_day) }
+
   def date_before_study_day
     return if study_day.blank?
     errors.add(:study_day, "に、未来の日程は設定できません。") if study_day > Date.today
