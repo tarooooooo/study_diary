@@ -1,11 +1,8 @@
 class Public::TopPageController < ::Public::BaseController
   def show
     if user_signed_in?
-      # 未指定カテゴリのチャート用データ作成
       if current_user.learning_diaries
-        # カラムチャート用データ追加（カテゴリなし）
         @diary_column_chart_data = current_user.diary_column_chart_data
-        # カテゴリ別の円チャート用データ作成（カテゴリなし））
         @diary_pie_chart_data = current_user.diary_pie_chart_data
       end
 
