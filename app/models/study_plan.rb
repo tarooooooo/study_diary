@@ -6,7 +6,7 @@ class StudyPlan < ApplicationRecord
   validates :weekly_target_time, presence: true
 
   def total_progress
-    [(user.weekly_study_time / current_study_plan.weekly_target_time.to_f * PERCENT_CONVERTION_NUMBER).floor, 100].min
+    [(user.weekly_study_time / weekly_target_time.to_f * PERCENT_CONVERTION_NUMBER).floor, 100].min
   end
 
   def extra_time

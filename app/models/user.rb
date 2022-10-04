@@ -13,4 +13,12 @@ class User < ApplicationRecord
   def weekly_study_time
     learning_diaries.weekly_diaries(Date.current - Date.today.beginning_of_week).sum(:study_time)
   end
+
+  def avg_daily_study_time
+    weekly_study_time / (Date.today.beginning_of_week..Date.current).count
+  end
+
+  def current_study_plan
+    study_plans&.last
+  end
 end

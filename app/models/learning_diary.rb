@@ -8,7 +8,8 @@ class LearningDiary < ApplicationRecord
   validates :user_id, presence: true
   validate :date_before_study_day
 
-  scope :weekly_uncategorized_diaries, -> ( number_of_day ) { where(study_category: nil, study_day: Date.today.beginning_of_week + number_of_day) }
+  scope :uncategorized_diary_until, -> ( number_of_day ) { where(study_category: nil, study_day: Date.today.beginning_of_week + number_of_day) }
+  scope :uncategorized_diary_until_today, -> { where(study_category: nil, study_day: Date.today.beginning_of_week..Date.current)}
   scope :weekly_diaries, -> ( number_of_day ) { where(study_day: Date.today.beginning_of_week + number_of_day) }
 
   def date_before_study_day
