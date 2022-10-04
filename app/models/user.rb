@@ -21,4 +21,12 @@ class User < ApplicationRecord
   def current_study_plan
     study_plans&.last
   end
+
+  def uncategorized_diaries_weekly_study_time_util_today
+    learning_diaries.uncategorized_diary_until_today.sum(:study_time)
+  end
+
+  def uncategorized_diaries_study_time_util(number_of_day)
+   learning_diaries.uncategorized_diary_until(number_of_day).sum(:study_time)
+  end
 end
