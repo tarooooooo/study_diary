@@ -13,6 +13,6 @@ class StudyCategory < ApplicationRecord
   end
 
   def diary_study_time_util(number_of_day)
-  learning_diaries.weekly_diaries(number_of_day).sum(:study_time)
+  learning_diaries.diary_util(number_of_day).sum(:study_time)
   end
 end

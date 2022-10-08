@@ -10,7 +10,8 @@ class LearningDiary < ApplicationRecord
 
   scope :uncategorized_diary_until, -> ( number_of_day ) { where(study_category: nil, study_day: Date.today.beginning_of_week + number_of_day) }
   scope :uncategorized_diary_until_today, -> { where(study_category: nil, study_day: Date.today.beginning_of_week..Date.current)}
-  scope :weekly_diaries, -> ( number_of_day ) { where(study_day: Date.today.beginning_of_week + number_of_day) }
+  scope :diary_util, -> ( number_of_day ) { where(study_day: Date.today.beginning_of_week + number_of_day) }
+  scope :weekly_diaries, -> ( number_of_day ) { where(study_day: Date.today.beginning_of_week..(Date.today.beginning_of_week + number_of_day)) }
 
   def date_before_study_day
     return if study_day.blank?
