@@ -7,7 +7,7 @@
         <tr>
           <th scope="col">No</th>
           <th scope="col">Name</th>
-          <th scope="col">Delete</th>
+<!--          <th scope="col">Delete</th>-->
         </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
             <tr>
               <th scope="row"><%= number %></th>
               <td><%= category.name %></td>
-              <td><%= link_to '削除', public_study_category_path(category), data: { turbo_method: :delete }, class: 'btn btn-danger' %></td>
+<!--              <td><%#= link_to '削除', public_study_category_path(category), data: { turbo_method: :delete }, class: 'btn btn-danger' %></td>-->
             </tr>
           <% end %>
         </tbody>
