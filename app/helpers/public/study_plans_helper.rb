@@ -5,6 +5,6 @@ module Public::StudyPlansHelper
   end
 
   def study_plan_title(study_plan)
-    study_plan.title.present? ? study_plan.title : "学習目標を立てましょう"
+    study_plan&.title&.present? ? study_plan&.title : "学習目標を立てましょう"
   end
 end

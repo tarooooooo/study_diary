@@ -1,5 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 import "controllers"
 import "chartkick"
 import "Chart.bundle"
@@ -7,6 +8,11 @@ import "Chart.bundle"
 // cdnのbootstrapを使用のためこちらはコメントアウト
 // require jquery
 // require bootstrap-sprockets
+
+
+
+
+
 
 $(function(){
   $('.js-open').click(function(){

@@ -7,6 +7,7 @@ class Public::TopPageController < ::Public::BaseController
       end
       @study_plan = StudyPlan.new
       @current_study_plan = current_user.current_study_plan
+      @weekly_first_study_plan = current_user.study_plans.where(created_at: Date.today.beginning_of_week..(Date.current + 1))
     end
   end
 end

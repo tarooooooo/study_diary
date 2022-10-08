@@ -83,3 +83,22 @@ body {
 .white_box {
   background-color: white;
 }
+
+.study_plan_modal {
+  display: none;
+  padding: 15px;
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+}
+
+.show_study_plan_modal {
+  display: block;
+}
