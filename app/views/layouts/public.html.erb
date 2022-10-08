@@ -16,7 +16,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= ' no_scroll' if @weekly_first_study_plan.blank? %>" >
     <%= render 'public/shared/header' %>
     <%= render 'layouts/notifications' %>
     <%= yield %>
