@@ -9,11 +9,6 @@ import "Chart.bundle"
 // require jquery
 // require bootstrap-sprockets
 
-
-
-
-
-
 $(function(){
   $('.js-open').click(function(){
     $("body").addClass('no_scroll');

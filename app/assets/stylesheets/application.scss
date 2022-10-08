@@ -16,6 +16,9 @@ body {
   background-color: #f7f7fc;
 }
 
+p {
+  margin: 0;
+}
 .btn-navy {
   background-color: #007394;
   color: white;
@@ -96,9 +99,46 @@ body {
   left: 50%;
   @media screen and (min-width: 768px) {
     width: 700px;
+    padding: 5px;
   }
 }
 
 .show_study_plan_modal {
   display: block;
+}
+
+
+.study_plan_modal {
+  .study_plan_form_box {
+    padding: 15px;
+    @media screen and (min-width: 768px) {
+      padding: 50px;
+    }
+  }
+
+  .plan_modal_header {
+    font-size: 15px;
+    margin-bottom: 10px;
+    @media screen and (min-width: 768px) {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 5px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 15px;
+    }
+
+    .plan_modal_title {
+      font-size: 13px;
+      color: #999999;
+      @media screen and (min-width: 768px) {
+        font-size: 20px;
+      }
+  }
+
+  }
+
 }
