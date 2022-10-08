@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
-      <h2>学びのりれき</h2>
+      <h2>学習したこと</h2>
       <% @learning_diaries.each_with_index do |learning_diary, number| %>
         <div class="card mb-3">
           <div class="card-header">
@@ -9,14 +9,17 @@
           </div>
           <div class="card-body">
             <blockquote class="blockquote mb-0">
-              <p data-id=<%= number %> class="js-open"><%= learning_diary.body.truncate(30) %></p>
-              <footer class="blockquote-footer">
+              <p data-id=<%= number %> class="js-open">
+                  <%= learning_diary.body.truncate(30) %>
+              </p>
+              <p class="learning_diary_category">
+                ー
                 <% if learning_diary.study_category.present? %>
                   <%= learning_diary.study_category&.name %>
                 <% else %>
                   カテゴリ未指定
                 <% end %>
-              </footer>
+              </p>
             </blockquote>
           </div>
         </div>
