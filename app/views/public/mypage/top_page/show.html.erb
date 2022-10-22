@@ -1,0 +1,19 @@
+<div class="mypage_contents col-md-8">
+  <div class="user_profile">
+    <% if current_user.profile.present? %>
+      <div class="user_profile_img">
+        <%= image_tag current_user.profile.icon.url, class: 'rounded-circle mr15' %>
+      </div>
+      <div class="user_name">
+        <%= current_user.name %>
+      </div>
+    <% else %>
+      <div class="user_profile_img">
+        <%= image_tag 'default.jpg', class: 'rounded-circle mr15' %>
+      </div>
+      <div class="user_name">
+        <p>ニックネーム未設定</p>
+      </div>
+    <% end %>
+  </div>
+</div>

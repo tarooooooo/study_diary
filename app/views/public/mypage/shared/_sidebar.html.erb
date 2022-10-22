@@ -1,0 +1,16 @@
+<div class="sidebar col-md-4 ">
+  <ul class="menu-list">
+    <li class="list-item">
+      <%= link_to 'マイページ', public_mypage_root_path, class:'list-link' %>
+    </li>
+    <% if current_user.profile.blank? %>
+      <li class="list-item">
+        <%= link_to 'プロフィール設定', new_public_mypage_profile_path, class:'list-link' %>
+      </li>
+    <% else %>
+      <li class="list-item">
+        <%= link_to 'プロフィール設定', edit_public_mypage_profile_path, class:'list-link' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

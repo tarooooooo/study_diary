@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :study_categories, dependent: :destroy
   has_many :learning_diaries, dependent: :destroy
   has_many :study_plans, dependent: :destroy
+  has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
   def weekly_study_time
     learning_diaries.weekly_diaries(Date.current - Date.today.beginning_of_week).sum(:study_time)

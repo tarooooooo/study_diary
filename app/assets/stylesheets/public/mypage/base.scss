@@ -1,0 +1,17 @@
+.wrapper {
+  .mypage {
+    padding: 50px 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    @media screen and (max-width: 768px) {
+      margin: 0;
+    }
+    .sidebar_contents {
+      display: flex;
+      flex-wrap: nowrap;
+      @media screen and (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}

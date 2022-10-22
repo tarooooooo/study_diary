@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_02_062058) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_22_094215) do
   create_table "learning_diaries", charset: "utf8mb4", force: :cascade do |t|
     t.text "body", null: false
     t.date "study_day", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_062058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_study_plans_on_user_id"
+  end
+
+  create_table "user_profiles", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "icon"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -72,4 +81,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_02_062058) do
   add_foreign_key "learning_diaries", "users"
   add_foreign_key "study_categories", "users"
   add_foreign_key "study_plans", "users"
+  add_foreign_key "user_profiles", "users"
 end

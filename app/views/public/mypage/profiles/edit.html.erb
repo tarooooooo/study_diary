@@ -1,0 +1,26 @@
+<div class="mypage_contents col-md-8">
+  <div class="user_edit">
+    <h1 class="profile_title text-center">プロフィール</h1>
+    <%= form_with model: current_user.profile, url: public_mypage_profile_path, local: true, method: :patch  do |f| %>
+      <div class="form-group row">
+        <div class="col">
+          <div class="text-center my-3">
+            <%= image_tag current_user.profile.icon.url, class: 'profile_icon rounded-circle' %>
+          </div>
+          <%= f.file_field :icon, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group row mt-3">
+        <div class="col">
+          <%= f.label :name, class: 'sub_title' %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="profile_btn text-center mt-3 px-3">
+        <%= f.submit '更新', class: 'btn btn-secondary btn-lg' %>
+      </div>
+    <% end %>
+  </div>
+</div>
