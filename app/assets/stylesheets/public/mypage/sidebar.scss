@@ -1,0 +1,15 @@
+.sidebar {
+  margin-right: 10px;
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    .list-item {
+      background-color: white;
+      margin-bottom: 5px;
+      padding: 5px;
+      .list-link {
+        color: black;
+      }
+    }
+  }
+}

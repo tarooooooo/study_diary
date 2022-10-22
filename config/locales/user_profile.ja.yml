@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      user_profile:
+        name: 名前
+        icon: アイコン

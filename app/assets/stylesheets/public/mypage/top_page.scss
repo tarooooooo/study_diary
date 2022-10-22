@@ -1,0 +1,21 @@
+// Place all the styles related to the public/mypage/top_page controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.mypage_contents {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+  .user_profile {
+    padding: 20px;
+    text-align: center;
+    .user_profile_img {
+      img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+        border-radius: 50px;
+      }
+    }
+  }
+}

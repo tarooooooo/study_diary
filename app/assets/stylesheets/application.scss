@@ -5,6 +5,10 @@
 @import 'public/header';
 @import 'public/flash';
 @import 'public/learning_diary';
+@import 'public/mypage/sidebar';
+@import 'public/mypage/base';
+@import 'public/mypage/top_page';
+@import 'public/mypage/user_profile';
 
 * {
   margin: 0;
@@ -139,4 +143,8 @@ p {
       }
     }
   }
+}
+
+.sub_title {
+  color: #d0d0d0;
 }
