@@ -1,7 +1,7 @@
 <div class="mypage_contents col-md-8">
   <div class="user_profile">
     <div class="user_profile_img">
-      <%= image_tag current_user.profile.icon.url, class: 'rounded-circle mr15' if current_user.profile.present? && current_user.profile.icon.present? %>
+      <%= image_tag current_user.profile.icon.thumb.url, class: 'rounded-circle mr15' if current_user.profile.present? && current_user.profile.icon.present? %>
       <%= image_tag 'default.jpg', class: 'rounded-circle mr15' unless current_user.profile.present? && current_user.profile.icon.present? %>
     </div>
     <div class="user_name">
