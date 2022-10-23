@@ -1,19 +1,12 @@
 <div class="mypage_contents col-md-8">
   <div class="user_profile">
-    <% if current_user.profile.present? %>
-      <div class="user_profile_img">
-        <%= image_tag current_user.profile.icon.url, class: 'rounded-circle mr15' %>
-      </div>
-      <div class="user_name">
-        <%= current_user.name %>
-      </div>
-    <% else %>
-      <div class="user_profile_img">
-        <%= image_tag 'default.jpg', class: 'rounded-circle mr15' %>
-      </div>
-      <div class="user_name">
-        <p>ニックネーム未設定</p>
-      </div>
-    <% end %>
+    <div class="user_profile_img">
+      <%= image_tag current_user.profile.icon.url, class: 'rounded-circle mr15' if current_user.profile.present? && current_user.profile.icon.present? %>
+      <%= image_tag 'default.jpg', class: 'rounded-circle mr15' unless current_user.profile.present? && current_user.profile.icon.present? %>
+    </div>
+    <div class="user_name">
+      <%= current_user.profile.name if current_user.profile.present? %>
+      <%= "ニックネーム未設定" unless current_user.profile.present? %>
+    </div>
   </div>
 </div>
