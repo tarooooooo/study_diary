@@ -5,7 +5,8 @@
       <div class="form-group row">
         <div class="col">
           <div class="text-center my-3">
-            <%= image_tag current_user.profile.icon.url, class: 'profile_icon rounded-circle' %>
+            <%= image_tag current_user.profile.icon.url, class: 'profile_icon rounded-circle' if current_user.profile.present? && current_user.profile.icon.present? %>
+            <%= image_tag 'default.jpg', class: 'profile_icon rounded-circle' unless current_user.profile.present? && current_user.profile.icon.present? %>
           </div>
           <%= f.file_field :icon, class: "form-control" %>
         </div>
